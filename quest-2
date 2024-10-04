@@ -1,0 +1,24 @@
+function pertenceFibonacci(numero) {
+    // Inicializa a sequência de Fibonacci com os dois primeiros termos
+    let fibonacci = [0, 1];
+
+    // Enquanto o último número da sequência for menor que o número informado
+    while (fibonacci[fibonacci.length - 1] < numero) {
+        // Calcula o próximo número da sequência
+        let proximo = fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2];
+        fibonacci.push(proximo);
+    }
+
+    // Verifica se o número informado está na sequência
+    return fibonacci.includes(numero);
+}
+
+// Exemplo de uso, com o número informado pelo usuário:
+let numeroInformado = prompt("Digite um número para verificar se pertence à sequência de Fibonacci:");
+numeroInformado = parseInt(numeroInformado); // Converte para número inteiro
+
+if (pertenceFibonacci(numeroInformado)) {
+    console.log(numeroInformado + " pertence à sequência de Fibonacci.");
+} else {
+    console.log(numeroInformado + " não pertence à sequência de Fibonacci.");
+}
