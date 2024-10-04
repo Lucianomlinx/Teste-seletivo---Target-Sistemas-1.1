@@ -1,0 +1,24 @@
+const faturamentoPorEstado = [
+  { estado: 'SP', valor: 67836.43 },
+  { estado: 'RJ', valor: 36678.66 },
+  { estado: 'MG', valor: 29229.88 },
+  { estado: 'ES', valor: 27165.48 },
+  { estado: 'Outros', valor: 19849.53 }
+];
+
+function calcularPercentual(dados) {
+  // Calcular o faturamento total
+  const faturamentoTotal = dados.reduce((total, estado) => total + estado.valor, 0);
+
+  // Calcular o percentual de cada estado
+  const resultado = dados.map(estado => ({
+    estado: estado.estado,
+    percentual: ((estado.valor / faturamentoTotal) * 100).toFixed(2)
+  }));
+
+  return resultado;
+}
+
+const resultado = calcularPercentual(faturamentoPorEstado);
+
+console.log(resultado);
